@@ -2,9 +2,9 @@
 
 echo "new pipeline"
 
-cd/home/opc/
+cd /home/opc/
 
-mkdir -p/home/opc/sania021.sh-$(date + %s)
+mkdir -p /home/opc/sania021.sh-$(date + %s)
 
 
  
