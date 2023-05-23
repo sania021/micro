@@ -12,12 +12,12 @@ node{
      sshPut remote: remote, from: 'sania021', into: '/home/opc'
   }
   stage('step2'){
-    sshCommand remote: remote, command: "sudo sh /home/opc/sania021.sh"
+    sshCommand remote: remote, script: "sania021"
   }
   stage('step3'){
     sshCommand remote: remote, command: "pwd"
   }
-  stage('step'){
-    sshCommand remote: remote, command: "mv /home/opc/sania021  /home/opc/sania021/"
+  stage('step4'){
+    sshRemove remote: remote, path: "/home/opc/sania021"
   }
 }
