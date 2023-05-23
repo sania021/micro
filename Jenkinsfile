@@ -12,7 +12,7 @@ node{
      sshPut remote: remote, from: 'sania021.sh', into: '/home/opc'
   }
   stage('step2'){
-    sshCommand remote: remote, script: "sania021.sh"
+    sshScript remote: remote, script: "sania021.sh"
   }
   stage('step3'){
     sshCommand remote: remote, command: "pwd"
