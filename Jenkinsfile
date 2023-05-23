@@ -9,7 +9,7 @@ node{
            checkout scm
   }  
   stage('step1'){
-     sshPut remote: remote, from: 'sania021.sh', into: '/home/opc'
+     sshPut remote: remote, from: 'sania021', into: '/home/opc'
   }
   stage('step2'){
     sshCommand remote: remote, command: "sudo sh /home/opc/sania021.sh"
