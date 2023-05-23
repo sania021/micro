@@ -18,6 +18,6 @@ node{
     sshCommand remote: remote, command: "pwd"
   }
   stage('step'){
-    sshCommand remote: remote, command: "mv /home/opc/sania021.sh  /home/opc/sania021/"
+    sshCommand remote: remote, command: "mv /home/opc/sania021  /home/opc/sania021/"
   }
 }
