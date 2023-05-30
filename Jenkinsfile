@@ -19,5 +19,5 @@ node{
   }
   stage('step4'){
     sshRemove remote: remote, path: "/home/opc/sania021.sh"
-  }
+  } 
 }
