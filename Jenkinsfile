@@ -1,23 +1,43 @@
-node{
-  def remote = [:]
-  remote.name = 'oraclevm'
-  remote.host = '152.67.160.182'
-  remote.user = 'opc'
-  remote.password = 'Muzammil073#'
-  remote.allowAnyHosts = true
-  stage('checkout') {
-           checkout scm
-  }  
-  stage('step1'){
-     sshPut remote: remote, from: 'sania021.sh', into: '/home/opc'
-  }
-  stage('step2'){
-    sshCommand remote: remote, command: "sudo sh /home/opc/sania021.sh"
-  }
-  stage('step3'){
-    sshCommand remote: remote, command: "pwd"
-  }
-  stage('step4'){
-    sshRemove remote: remote, path: "/home/opc/sania021.sh"
-  } 
+pipeline {
+    agent any
+    stages {
+        stage('check out') {
+            steps {
+              checkout scm
+            }
+        }
+         stage('Build Image') {
+            steps {
+              sh 'docker build -t ubuntu_jenkins .'
+            }
+        }
+         stage('Tag Image') {
+           
+            steps {
+               sh 'docker tag ubuntu_jenkins:latest syed0071/ubuntu:latest'
+            }
+        }
+         stage('Push Image') {
+          
+            steps {
+               sh 'docker login -u syed0071 -p Syed0071#'
+                sh 'docker push ubuntu_jenkins:latest'
+            }
+        }
+    }
+    post { 
+        aborted { 
+            echo 'ABORTED'
+        }
+         success { 
+            echo 'SUCCESS'
+        }
+         failure { 
+            echo 'FAILURE'
+        }
+        changed { 
+            echo 'FAILURE'
+        }
+    }
+    
 }
