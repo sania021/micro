@@ -18,13 +18,13 @@ pipeline {
         }
         stage ('Push Image') {
             steps{
-                bat ' docker push sania021/nginx021'
+                bat ' docker push sania021/nginx01'
             }
         }
          stage('Run Image') {
            
             steps {
-               bat 'docker run --name b13 -p 7701:80 -d nginx01'
+               bat 'docker run --name b23 -p 7700:80 -d nginx01'
             }
         }
     }
