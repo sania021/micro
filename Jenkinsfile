@@ -14,14 +14,7 @@ pipeline {
          stage('Run Image') {
            
             steps {
-               bat 'docker run --name b11 -p 7701:80 -d nginx01'
-            }
-        }
-         stage('exec Image') {
-          
-            steps {
-               bat 'docker exec -it b11 /bin/bash'
-                
+               bat 'docker run --name b12 -p 7711:80 -d nginx01'
             }
         }
     }
