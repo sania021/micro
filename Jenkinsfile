@@ -8,23 +8,23 @@ pipeline {
         }
          stage('Build Image') {
             steps {
-              bat 'docker build -t nginx01 -f Dockerfile .'
+              bat 'docker build -t alpine2 -f Dockerfile .'
             }
         }
         stage('Tag Image') {
             steps {
-                bat 'docker tag nginx01 sania021/nginx01'
+                bat 'docker tag alpine2 sania021/alpine2'
             }
         }
         stage ('Push Image') {
             steps{
-                bat ' docker push sania021/nginx01'
+                bat ' docker push sania021/alpine2'
             }
         }
          stage('Run Image') {
            
             steps {
-               bat 'docker run --name b23 -p 7700:80 -d nginx01'
+               bat 'docker run --name alpine21 -p 7720:80 -d alpine2'
             }
         }
     }
