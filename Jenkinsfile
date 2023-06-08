@@ -13,12 +13,12 @@ pipeline {
         }
         stage('Tag Image') {
             steps {
-                bat "docker tag nginx01 sania021/nginx01
+                bat 'docker tag nginx01 sania021/nginx01'
             }
         }
         stage ('Push Image') {
             steps{
-                bat docker push sania021/nginx021
+                bat ' docker push sania021/nginx021'
             }
         }
          stage('Run Image') {
