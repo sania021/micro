@@ -12,7 +12,7 @@ pipeline {
             }
         }
         stage('Tag Image') {
-            steps{
+            steps {
                 bat "docker tag nginx01 sania021/nginx01
             }
         }
