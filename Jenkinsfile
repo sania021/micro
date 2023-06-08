@@ -8,20 +8,20 @@ pipeline {
         }
          stage('Build Image') {
             steps {
-              bat 'docker build -t ubuntu -f Dockerfile .'
+              bat 'docker build -t nginx01 -f Dockerfile .'
             }
         }
-         stage('Tag Image') {
+         stage('Run Image') {
            
             steps {
-               bat 'docker tag ubuntu sania021/ubuntu'
+               bat 'docker run --name b11 -p 7701:80 -d nginx01'
             }
         }
-         stage('Push Image') {
+         stage('exec Image') {
           
             steps {
-               bat 'docker login -u sania021 -p Sania@7866'
-                bat 'docker push sania021/ubuntu'
+               bat 'docker exec -it b11 /bin/bash'
+                
             }
         }
     }
