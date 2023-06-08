@@ -21,7 +21,17 @@ pipeline {
                 bat ' docker push sania021/alpine2'
             }
         }
-         stage('Run Image') {
+        stage ('stop image') {
+            steps {
+                bat 'docker stop alpine21'
+            }
+        }
+        stage ('rm image') {
+            steps {
+                bat 'docker rm alpine21'
+            }
+        }
+        stage('Run Image') {
            
             steps {
                bat 'docker run --name alpine21 -p 7720:80 -d alpine2'
