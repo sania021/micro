@@ -8,33 +8,23 @@ pipeline {
         }
          stage('Build Image') {
             steps {
-              bat 'docker build -t alpine2 -f Dockerfile .'
+              bat 'docker build -t node1 -f Dockerfile1 .'
             }
         }
         stage('Tag Image') {
             steps {
-                bat 'docker tag alpine2 sania021/alpine2'
+                bat 'docker tag node1 sania021/node1'
             }
         }
         stage ('Push Image') {
             steps{
-                bat ' docker push sania021/alpine2'
-            }
-        }
-        stage ('stop image') {
-            steps {
-                bat 'docker stop alpine21'
-            }
-        }
-        stage ('rm image') {
-            steps {
-                bat 'docker rm alpine21'
+                bat ' docker push sania021/node1'
             }
         }
         stage('Run Image') {
            
             steps {
-               bat 'docker run --name alpine21 -p 7720:80 -d alpine2'
+               bat 'docker run --name node_con -p 7701:80 -d node1'
             }
         }
     }
