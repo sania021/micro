@@ -24,7 +24,7 @@ pipeline {
         stage('Run Image') {
            
             steps {
-               bat 'docker run --name s11 -it --rm node_doc'
+               bat 'docker run --name s12 -p 7711:80 -d node_doc'
             }
         }
     }
