@@ -8,23 +8,23 @@ pipeline {
         }
          stage('Build Image') {
             steps {
-              bat 'docker build -t node1 -f Dockerfile1 .'
+              bat 'docker build -t node_doc -f Dockerfile1 .'
             }
         }
         stage('Tag Image') {
             steps {
-                bat 'docker tag node1 sania021/node1'
+                bat 'docker tag node_doc sania021/node_doc'
             }
         }
         stage ('Push Image') {
             steps{
-                bat ' docker push sania021/node1'
+                bat ' docker push sania021/node_doc'
             }
         }
         stage('Run Image') {
            
             steps {
-               bat 'docker run --name node_con -p 7701:80 -d node1'
+               bat 'docker run --name s11 -it --rm node_doc'
             }
         }
     }
