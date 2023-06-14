@@ -8,7 +8,7 @@ pipeline {
         }
          stage('up Image') {
             steps {
-              bat 'docker-compose up'
+              bat 'docker-compose up -d'
             }
         }
     }
