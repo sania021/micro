@@ -1,0 +1,29 @@
+ services:
+   DB:
+     image: postgres:latest
+     ports:
+        - "1521:5432"
+     environment:
+        - POSTGRES_HOST_AUTH_METHOD=trust
+        - POSTGRES_PASSWORD=microcare
+     container_name: DB
+   WEB:
+     image: nginx:latest
+     ports:
+       - "7797:80"
+     container_name: WEB
+     volumes:
+       - "vol_nginx:/opt/compose/"
+     depends_on:
+       - "DB"
+   MID:
+    build: ./
+    image:
+      sania021/nginx02
+    ports:
+     - "7761:80"
+    container_name: MID
+ volumes:
+    vol_nginx:
+      name: vol_nginx
+      external: true
