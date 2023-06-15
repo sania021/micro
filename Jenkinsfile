@@ -6,7 +6,12 @@ pipeline {
               checkout scm
             }
         }
-         stage('up Image') {
+         stage('docker compose stop') {
+            steps {
+              bat 'docker-compose down'
+            }
+        }
+         stage('docker compose start') {
             steps {
               bat 'docker-compose up -d'
             }
