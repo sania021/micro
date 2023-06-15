@@ -8,7 +8,7 @@ pipeline {
         }
          stage('docker compose stop') {
             steps {
-              bat 'docker-compose down'
+                bat 'docker-compose down'
             }
         }
          stage('docker compose start') {
@@ -18,8 +18,8 @@ pipeline {
         }
          stage('push image') {
             steps {
-              bat 'sudo docker login -u sania021 -p Sania@7866'
-                bat 'sudo docker push sania021/nginx01'
+              bat 'docker login -u sania021 -p Sania@7866'
+                bat 'docker push sania021/nginx01'
             }
         }
     }
