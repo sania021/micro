@@ -16,6 +16,12 @@ pipeline {
               bat 'docker-compose up -d'
             }
         }
+         stage('push image') {
+            steps {
+              bat 'sudo docker login -u sania021 -p Sania@7866'
+                bat 'sudo docker push sania021/nginx01'
+            }
+        }
     }
        
     post { 
