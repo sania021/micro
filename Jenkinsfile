@@ -18,13 +18,13 @@ pipeline {
         }
         stage('tag  image') {
             steps {
-              bat 'docker tag new1 sania021/new1'
+              bat 'docker tag nginx sania021/nginx'
             }
         }
          stage('push image') {
             steps {
               bat 'docker login -u sania021 -p Sania@7866'
-                bat 'docker push sania021/new1'
+                bat 'docker push sania021/nginx'
             }
         }
     }
