@@ -15,12 +15,7 @@ pipeline {
             steps {
               bat 'docker-compose up -d'
             }
-        }
-        stage('tag  image') {
-            steps {
-              bat 'docker tag nginx sania021/nginx'
-            }
-        }
+         }
          stage('push image') {
             steps {
               bat 'docker login -u sania021 -p Sania@7866'
